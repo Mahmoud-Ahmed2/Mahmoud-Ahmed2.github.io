@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahmoud Ahmed | Development Engineer</title>
+  <meta name="description" content="Mahmoud Ahmed – Development Engineer specializing in sustainable industrial solutions, waste-to-energy technologies, and environmental innovation." />
+
+  <!-- Basic styles -->
+  <style>
+    :root {
+      --primary-green: #1c7c54;
+      --primary-yellow: #f6c453;
+      --dark: #071013;
+      --light: #f9fafb;
+      --muted: #6b7280;
+      --card-bg: #ffffff;
+      --border-radius-lg: 18px;
+      --border-radius-xl: 26px;
+      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, rgba(28, 124, 84, 0.15), transparent 60%),
+                  radial-gradient(circle at bottom right, rgba(246, 196, 83, 0.16), transparent 55%),
+                  #f3f4f6;
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page-wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px 16px 64px;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px;
+      margin-bottom: 28px;
+      backdrop-filter: blur(16px);
+      background: rgba(249, 250, 251, 0.82);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 11px;
+      background: conic-gradient(from 180deg, var(--primary-green), var(--primary-yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-text span:first-child {
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .logo-text span:last-child {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      font-size: 14px;
+    }
+
+    nav a {
+      position: relative;
+      padding-bottom: 3px;
+      color: #4b5563;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary-green), var(--primary-yellow));
+      border-radius: 999px;
+      transition: width 0.25s ease;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 13px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(28, 124, 84, 0.35);
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 18px 35px rgba(28, 124, 84, 0.4);
+    }
+
+    /* Hero section */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-text {
+      padding: 26px 24px;
+      background: rgba(255, 255, 255, 0.92);
+      border-radius: var(--border-radius-xl);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(15, 23, 42, 0.03);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px 4px 5px;
+      border-radius: 999px;
+      background: rgba(28, 124, 84, 0.06);
+      color: #065f46;
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .badge-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: conic-gradient(from 240deg, var(--primary-green), var(--primary-yellow));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+      font-size: 11px;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 3vw, 34px);
+      line-height: 1.2;
+      margin-bottom: 8px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-tagline {
+      font-size: 13px;
+      font-weight: 500;
+      color: #065f46;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(246, 196, 83, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .hero-tagline span.icon {
+      font-size: 14px;
+    }
+
+    .hero-body {
+      font-size: 14px;
+      color: #4b5563;
+      margin-bottom: 24px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 18px;
+    }
+
+    .btn-primary {
+      padding: 10px 18px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(120deg, var(--primary-green), var(--primary-yellow));
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 13px;
+      box-shadow: 0 14px 30px rgba(5, 122, 85, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(5, 122, 85, 0.42);
+    }
+
+    .btn-secondary {
+      padding: 9px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.7);
+      color: #374151;
+      font-weight: 500;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.12s ease, transform 0.12s ease, box-shadow 0.12s ease;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+      box-shadow: 0 8px 18px rgba(148, 163, 184, 0.35);
+      transform: translateY(-1px);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      font-size: 12px;
+      color: #6b7280;
+    }
+
+    .hero-meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.02);
+    }
+
+    .hero-meta-item strong {
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .hero-visual {
+      position: relative;
+      padding: 18px;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top left, rgba(28, 124, 84, 0.12), rgba(7, 16, 19, 0.96));
+      border-radius: 28px;
+      padding: 20px 20px 18px;
+      color: #e5e7eb;
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.65);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 11px;
+      margin-bottom: 10px;
+    }
+
+    .hero-pill-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.25);
+    }
+
+    .hero-name {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .hero-role {
+      font-size: 12px;
+      color: #d1d5db;
+      margin-bottom: 12px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      border: 1px solid rgba(55, 65, 81, 0.85);
+    }
+
+    .hero-metrics {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 10px;
+      font-size: 11px;
+    }
+
+    .hero-metric {
+      flex: 1;
+      padding: 7px 9px;
+      border-radius: 14px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(55, 65, 81, 0.9);
+    }
+
+    .hero-metric span.label {
+      display: block;
+      font-size: 10px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .hero-metric span.value {
+      font-weight: 600;
+      color: #facc15;
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+
+    .hero-orbit-circle {
+      position: absolute;
+      width: 170px;
+      height: 170px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.4);
+      top: -40px;
+      right: -50px;
+    }
+
+    .hero-orbit-tag {
+      position: absolute;
+      top: 18px;
+      right: -4px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(7, 16, 19, 0.95);
+      font-size: 10px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -6px;
+      right: 2px;
+      padding: 7px 10px;
+      border-radius: 18px;
+      background: rgba(249, 250, 251, 0.96);
+      font-size: 11px;
+      color: #111827;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      max-width: 200px;
+    }
+
+    .hero-floating-card strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 11px;
+    }
+
+    .hero-floating-card span {
+      font-size: 10px;
+      color: #6b7280;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 48px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 18px;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(28, 124, 84, 0.06);
+      color: #065f46;
+    }
+
+    /* About / CV */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius-lg);
+      padding: 16px 18px;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(15, 23, 42, 0.03);
+    }
+
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 8px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 88px minmax(0, 1fr);
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .timeline-time {
+      color: #6b7280;
+    }
+
+    .timeline-role {
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: #111827;
+    }
+
+    .timeline-place {
+      color: #4b5563;
+      margin-bottom: 3px;
+    }
+
+    .timeline-desc {
+      color: #6b7280;
+    }
+
+    /* Blog */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 16px;
+    }
+
+    .blog-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 14px 14px 16px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .blog-category {
+      font-size: 11px;
+      color: #047857;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .blog-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 2px 0;
+    }
+
+    .blog-meta {
+      font-size: 11px;
+      color: #9ca3af;
+    }
+
+    .blog-excerpt {
+      font-size: 12px;
+      color: #4b5563;
+      margin-top: 4px;
+    }
+
+    .blog-link {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #065f46;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Portfolio */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+    }
+
+    .portfolio-item {
+      background: var(--card-bg);
+      border-radius: 16px;
+      padding: 12px 13px 14px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.04);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .portfolio-pill {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(246, 196, 83, 0.14);
+      color: #92400e;
+      width: fit-content;
+    }
+
+    .portfolio-title {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .portfolio-meta {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    /* Contact */
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 18px;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      color: #4b5563;
+      margin-bottom: 8px;
+    }
+
+    .contact-list {
+      margin-top: 8px;
+      font-size: 13px;
+      color: #111827;
+    }
+
+    .contact-list div {
+      margin-bottom: 4px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      font-size: 13px;
+    }
+
+    label {
+      font-size: 12px;
+      color: #4b5563;
+      margin-bottom: 2px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid #d1d5db;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.12s ease, box-shadow 0.12s ease;
+      background: #f9fafb;
+    }
+
+    input:focus, textarea:focus {
+      border-color: var(--primary-green);
+      box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.4);
+      background: #ffffff;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: flex;
+      gap: 10px;
+    }
+
+    .form-row > div {
+      flex: 1;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: #6b7280;
+      margin-top: 4px;
+    }
+
+    footer {
+      margin-top: 32px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    footer a {
+      color: #047857;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      header {
+        flex-direction: column;
+        gap: 10px;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .grid-2, .contact-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      header {
+        border-radius: 18px;
+      }
+
+      .page-wrapper {
+        padding-inline: 14px;
+      }
+
+      .hero-text {
+        padding: 20px 16px;
+      }
+
+      .hero-card {
+        padding: 18px 16px 16px;
+      }
+
+      .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header>
+      <div class="logo">
+        <div class="logo-mark">M</div>
+        <div class="logo-text">
+          <span>Mahmoud Ahmed</span>
+          <span>Development Engineer · WtE</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#blog">Blog</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">Let’s Collaborate</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero" id="top">
+        <div class="hero-text">
+          <div class="badge">
+            <div class="badge-dot">M</div>
+            <span>Son · Dreamer · Engineer</span>
+          </div>
+          <h1 class="hero-title">Turning waste into value – one smart solution at a time.</h1>
+          <p class="hero-subtitle">I’m Mahmoud Ahmed, a Development Engineer at BioMasr Ltd, focusing on sustainable industrial solutions, waste-to-energy technologies, and environmental innovation.</p>
+          <div class="hero-tagline">
+            <span class="icon">⚙️</span>
+            <span>From agri-waste to clean energy and smarter factories.</span>
+          </div>
+          <p class="hero-body">
+            I design, simulate, and optimize processes that help industries turn challenges into opportunities – whether it’s biochar from agricultural residues, biogas from organic waste, or cleaner fuels from solid waste streams.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'});">
+              Contact Mahmoud
+              <span>→</span>
+            </button>
+            <button class="btn-secondary" onclick="document.getElementById('experience').scrollIntoView({behavior: 'smooth'});">
+              View Experience
+            </button>
+          </div>
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <span>🎓</span>
+              <span><strong>CHE Grad</strong> · Cairo University</span>
+            </div>
+            <div class="hero-meta-item">
+              <span>🧪</span>
+              <span>Process simulation &amp; WtE R&amp;D</span>
+            </div>
+            <div class="hero-meta-item">
+              <span>🤝</span>
+              <span>Open to collaborations &amp; mentoring</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <div class="hero-card">
+            <div class="hero-pill">
+              <span class="hero-pill-dot"></span>
+              <span>Live in the field · Learning every day</span>
+            </div>
+            <div class="hero-name">Mahmoud Ahmed Abdelhamid</div>
+            <div class="hero-role">Development Engineer · BioMasr Ltd</div>
+            <div class="hero-tags">
+              <span class="hero-tag">Waste-to-Energy</span>
+              <span class="hero-tag">Process Simulation</span>
+              <span class="hero-tag">Sustainable Industry</span>
+              <span class="hero-tag">Environmental Innovation</span>
+            </div>
+            <div class="hero-metrics">
+              <div class="hero-metric">
+                <span class="label">Focus Areas</span>
+                <span class="value">Biochar, Biogas, Pyrolysis</span>
+              </div>
+              <div class="hero-metric">
+                <span class="label">Industry Exposure</span>
+                <span class="value">Energy, Cement, Fertilizers</span>
+              </div>
+              <div class="hero-metric">
+                <span class="label">Beyond Work</span>
+                <span class="value">Volunteering &amp; career guidance</span>
+              </div>
+            </div>
+
+            <div class="hero-orbit">
+              <div class="hero-orbit-circle"></div>
+              <div class="hero-orbit-tag">Sustainable solutions for real factories – not just slides.</div>
+              <div class="hero-floating-card">
+                <strong>Working with waste, energy &amp; people.</strong>
+                <span>Connecting engineering, field work, and community impact to build a cleaner, fairer future.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About & Skills / Education -->
+      <section id="about">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">About Mahmoud</h2>
+            <p class="section-subtitle">A chemical engineer who enjoys building solutions that actually work on the ground.</p>
+          </div>
+          <span class="pill">Based in Egypt · Open to global collaboration</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Who I am</h3>
+            <p>
+              I’m Mahmoud Ahmed, a Development Engineer at <strong>BioMasr Ltd</strong>, working on
+              waste-to-energy and sustainable industrial projects. I enjoy turning complex industrial
+              problems into clear, practical solutions.
+            </p>
+            <p>
+              My work ranges from designing and simulating processes, to supporting real projects in the
+              field – biogas units, biochar systems, and energy-from-waste solutions that help companies
+              reduce emissions and use resources smarter.
+            </p>
+            <p>
+              Outside the plant, I share what I learn through writing and mentoring, especially with
+              students and fresh graduates who want to build careers in sustainable engineering.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Snapshot</h3>
+            <p><strong>Education</strong></p>
+            <p>B.Sc. in Chemical Engineering – Cairo University (2020–2025), graduating with a Very Good grade and ranking among the top students in my class.</p>
+            <div class="tag-list">
+              <span class="tag">Chemical Engineering</span>
+              <span class="tag">Process Design</span>
+              <span class="tag">Sustainability</span>
+              <span class="tag">Waste Management</span>
+            </div>
+
+            <p style="margin-top: 10px;"><strong>Core skills</strong></p>
+            <div class="tag-list">
+              <span class="tag">Aspen Plus</span>
+              <span class="tag">Process Simulation</span>
+              <span class="tag">Data Analysis</span>
+              <span class="tag">Critical Thinking</span>
+              <span class="tag">Waste-to-Energy Technologies</span>
+              <span class="tag">Environmental Innovation</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience / Timeline -->
+      <section id="experience">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Experience &amp; Field Exposure</h2>
+            <p class="section-subtitle">From biogas and biochar to cement, fertilizers, and oil &amp; gas operations.</p>
+          </div>
+          <span class="pill">Hands-on industrial learning</span>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>Current Role</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-time">2025 – Present</div>
+                <div>
+                  <div class="timeline-role">Development Engineer</div>
+                  <div class="timeline-place">BioMasr Ltd · Waste-to-Energy</div>
+                  <div class="timeline-desc">
+                    Supporting R&amp;D and development for biochar, biogas, and waste-to-energy projects.
+                    Working on process simulations, technical reports, and optimization for real plants
+                    serving dairy, food, and industrial clients.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <h3>Previous Internships</h3>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-time">2025</div>
+                <div>
+                  <div class="timeline-role">Field Engineer Intern</div>
+                  <div class="timeline-place">SAPESCO</div>
+                  <div class="timeline-desc">Exposure to coiled tubing, wireline, and nitrogen pumping operations in oil &amp; gas fields.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-time">2024</div>
+                <div>
+                  <div class="timeline-role">Process Engineer Intern</div>
+                  <div class="timeline-place">ENPPI</div>
+                  <div class="timeline-desc">Understanding of upstream/downstream operations, pumps, separators, and process safety.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-time">2023</div>
+                <div>
+                  <div class="timeline-role">Production Engineer Intern</div>
+                  <div class="timeline-place">Suez Cement – Heidelberg Materials</div>
+                  <div class="timeline-desc">Worked on alternative fuels (RDF &amp; biomass) and improving production efficiency in cement operations.</div>
+                </div>
+              </div>
+
+              <div class="timeline-item">
+                <div class="timeline-time">2023</div>
+                <div>
+                  <div class="timeline-role">Process Engineer Intern</div>
+                  <div class="timeline-place">EBIC · Fertiglobe</div>
+                  <div class="timeline-desc">Reviewed PFDs, supported troubleshooting, and learned about safe, efficient fertilizer plant operations.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Writing &amp; Insights</h2>
+            <p class="section-subtitle">Short, practical reflections on green processes, careers, and waste-to-energy.</p>
+          </div>
+          <span class="pill">3–5 minute reads</span>
+        </div>
+
+        <div class="blog-grid">
+          <article class="blog-card">
+            <div class="blog-category">Green processes</div>
+            <h3 class="blog-title">Optimizing Production Efficiency in Green Energy Processes</h3>
+            <div class="blog-meta">Process design · Energy · Real constraints</div>
+            <p class="blog-excerpt">
+              Thoughts on how small improvements in process design, data, and operations can unlock big
+              savings in energy and emissions – especially in plants working with waste, biomass, and
+              bio-based fuels.
+            </p>
+            <a class="blog-link" href="#contact">Ask for the full article <span>→</span></a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-category">Career</div>
+            <h3 class="blog-title">Career Insights: Thriving in Sustainable Engineering</h3>
+            <div class="blog-meta">Students &amp; fresh grads · Practical advice</div>
+            <p class="blog-excerpt">
+              A simple, honest look at how to build a career in sustainable engineering – choosing
+              internships, learning from the field, and staying close to real problems, not just theories.
+            </p>
+            <a class="blog-link" href="#contact">Request the article <span>→</span></a>
+          </article>
+
+          <article class="blog-card">
+            <div class="blog-category">Innovation</div>
+            <h3 class="blog-title">Sustainable Energy Innovations in Waste-to-Energy</h3>
+            <div class="blog-meta">Innovation · Waste-to-Energy · Future</div>
+            <p class="blog-excerpt">
+              Exploring how waste-to-energy, biochar, and circular economy projects can support cleaner
+              industries – and what it takes to turn ideas into working projects.
+            </p>
+            <a class="blog-link" href="#contact">Get a copy <span>→</span></a>
+          </article>
+        </div>
+      </section>
+
+      <!-- Portfolio -->
+      <section id="portfolio">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Selected Projects &amp; Exposure</h2>
+            <p class="section-subtitle">A glimpse of the systems, plants, and ideas I’ve been learning from.</p>
+          </div>
+          <span class="pill">More examples available on request</span>
+        </div>
+
+        <div class="portfolio-grid">
+          <div class="portfolio-item">
+            <div class="portfolio-pill">Biochar &amp; Agri-waste</div>
+            <div class="portfolio-title">Agricultural Residues to Biochar &amp; Clean Energy</div>
+            <div class="portfolio-meta">
+              Supporting simulations and concept work for systems that convert crop residues into biochar,
+              heat, and cleaner fuels.
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-pill">Biogas</div>
+            <div class="portfolio-title">Biogas from Dairy &amp; Food Industry Waste</div>
+            <div class="portfolio-meta">
+              Exposure to digesters, gas handling, and digestate use in real dairy and food processing
+              plants.
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-pill">Cement &amp; RDF</div>
+            <div class="portfolio-title">Alternative Fuels in Cement Plants</div>
+            <div class="portfolio-meta">
+              Understanding how RDF and biomass streams can replace part of fossil fuel use in large
+              kilns, with real operational constraints.
+            </div>
+          </div>
+
+          <div class="portfolio-item">
+            <div class="portfolio-pill">Fertilizers</div>
+            <div class="portfolio-title">Process Safety &amp; Efficiency in Fertilizer Production</div>
+            <div class="portfolio-meta">
+              Reviewing process diagrams, following troubleshooting cases, and learning how safe
+              high-capacity fertilizer plants operate.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Contact Mahmoud</h2>
+            <p class="section-subtitle">For collaborations, projects, speaking invitations, or mentoring requests.</p>
+          </div>
+          <span class="pill">Let’s build something useful</span>
+        </div>
+
+        <div class="contact-layout">
+          <div class="card contact-info">
+            <p>
+              If you’re working on a project related to waste-to-energy, sustainable industry, or you’re a
+              student looking for guidance, feel free to reach out.
+            </p>
+            <div class="contact-list">
+              <div><strong>Phone:</strong> <a href="tel:+201030234219">+20 1030234219</a></div>
+              <div><strong>Email:</strong> <a href="mailto:mahmoudahmed30902@gmail.com">mahmoudahmed30902@gmail.com</a></div>
+            </div>
+            <p style="margin-top: 10px;">
+              I try to answer messages that are clear, respectful, and connected to sustainability,
+              engineering, community work, or career development.
+            </p>
+          </div>
+
+          <div class="card">
+            <form>
+              <div class="form-row">
+                <div>
+                  <label for="first-name">First name</label>
+                  <input id="first-name" type="text" name="first-name" placeholder="Your first name" />
+                </div>
+                <div>
+                  <label for="last-name">Last name</label>
+                  <input id="last-name" type="text" name="last-name" placeholder="Your last name" />
+                </div>
+              </div>
+              <div>
+                <label for="email">Email</label>
+                <input id="email" type="email" name="email" placeholder="you@example.com" />
+              </div>
+              <div>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="Tell Mahmoud a bit about your project or question."></textarea>
+              </div>
+              <button type="submit" class="btn-primary">Send message</button>
+              <div class="form-note">This is a static form – connect it later to your email or a form service.</div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Mahmoud Ahmed. All rights reserved.</div>
+      <div>Built with care around green &amp; yellow – for energy, growth, and clarity.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Dynamic year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
